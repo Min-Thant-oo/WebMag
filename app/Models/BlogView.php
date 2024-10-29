@@ -9,4 +9,8 @@ class BlogView extends Model
 {
     /** @use HasFactory<\Database\Factories\BlogViewFactory> */
     use HasFactory;
+
+    public function blog() {
+        return $this->belongsTo(Blog::class);
+    }
 }

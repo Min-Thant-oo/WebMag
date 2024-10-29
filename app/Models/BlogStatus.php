@@ -9,4 +9,8 @@ class BlogStatus extends Model
 {
     /** @use HasFactory<\Database\Factories\BlogStatusFactory> */
     use HasFactory;
+
+    public function blogs() {
+        return $this->hasMany(Blog::class);
+    }
 }
