@@ -10,6 +10,11 @@ class BlogView extends Model
     /** @use HasFactory<\Database\Factories\BlogViewFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'blog_id',
+        'ip'
+    ];
+
     public function blog() {
         return $this->belongsTo(Blog::class);
     }
