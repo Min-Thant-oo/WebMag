@@ -2,22 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\ContactMessage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ContactMessage>
- */
 class ContactMessageFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = ContactMessage::class;
+
     public function definition(): array
     {
         return [
-            //
+            'email'     => $this->faker->email,
+            'subject'   => $this->faker->realText(50),
+            'message'   => $this->faker->realText(255),
         ];
     }
 }

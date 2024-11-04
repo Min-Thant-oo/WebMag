@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -19,6 +18,13 @@ class Category extends Model
 
     public function blogs() {
         return $this->hasMany(Blog::class);
+    }
+
+    public function scopeFilter($query, $filter)
+    {
+        $query->when($filter['search'] ?? false, function ($query, $search) {
+            $query->where("name", "like", "%$search%");
+        });
     }
 
 }

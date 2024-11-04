@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogStatus extends Model
 {
-    /** @use HasFactory<\Database\Factories\BlogStatusFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -17,5 +16,12 @@ class BlogStatus extends Model
 
     public function blogs() {
         return $this->hasMany(Blog::class);
+    }
+
+    public function scopeFilter($query, $filter)
+    {
+        $query->when($filter['search'] ?? false, function ($query, $search) {
+            $query->where("name", "like", "%$search%");
+        });
     }
 }

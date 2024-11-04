@@ -2,22 +2,23 @@
 
 namespace Database\Factories;
 
+use App\Models\Blog;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
- */
 class CommentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Comment::class;
+
     public function definition(): array
     {
+        $blog_count = Blog::count();
         return [
-            //
+            'blog_id'       => rand(1, $blog_count),
+            'name'          => $this->faker->name,
+            'email'         => $this->faker->email,
+            'website'       => $this->faker->url,
+            'comment'       => $this->faker->realText(),
         ];
     }
 }

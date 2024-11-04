@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 75);
             $table->string('email', 50);
             $table->string('website', 150)->nullable();
-            $table->text('content');
+            $table->text('comment');
             $table->timestamps();
         });
     }

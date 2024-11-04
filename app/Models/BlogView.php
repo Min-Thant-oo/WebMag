@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogView extends Model
 {
-    /** @use HasFactory<\Database\Factories\BlogViewFactory> */
     use HasFactory;
 
     protected $fillable = [
