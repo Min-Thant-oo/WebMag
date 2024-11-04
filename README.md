@@ -13,7 +13,8 @@ You can check out live demo from [here](http://webmag.minthantoo.com)
 * Create `.env`
 * Copy `.env.example` to `.env`
 * Fill out database username, password, database name to the `.env` file
-* run `php artisan setup:install` or `make install` if you have make in your computer
+* Run `composer install`
+* Run `php artisan setup:install` or `make install` if you have make in your computer
 
 php artisan setup:install includes all the migrations and seeding dummy data.
 
