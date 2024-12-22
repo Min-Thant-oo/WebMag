@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\blog;
+namespace App\View\Components\Blog;
 
 use App\Models\Blog;
 use Illuminate\Contracts\View\View;
