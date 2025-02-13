@@ -1,9 +1,10 @@
-<?php
-
-return array_filter([
+$providers = [
     App\Providers\AppServiceProvider::class,
     App\Providers\ViewServiceProvider::class,
+];
 
-    // Conditionally load IdeHelperServiceProvider in development
-    env('APP_ENV') === 'local' ? Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class : null,
-]);
+if (app()->environment('local')) {
+    $providers[] = Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class;
+}
+
+return $providers;
