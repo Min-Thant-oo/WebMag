@@ -35,11 +35,11 @@ jobs:
             - name: Synchronize Files To Server
               uses: easingthemes/ssh-deploy@main
               env: 
-                  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-                  SOURCE: "."
-                  REMOTE_HOST: ${{ secrets.VPS_HOST }}
-                  REMOTE_USER: ${{ secrets.VPS_USER }}
-                  TARGET: "/var/www/webmag"
+                SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+                SOURCE: "."
+                REMOTE_HOST: ${{ secrets.VPS_HOST }}
+                REMOTE_USER: ${{ secrets.VPS_USER }}
+                TARGET: "/var/www/webmag"
 
             - name: Run Remote/Artisan Commands
               uses: appleboy/ssh-action@v0.1.6
@@ -48,6 +48,9 @@ jobs:
                 username: ${{ secrets.VPS_USER }}
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script: |
-                    cd /var/www/webmag
-                    php artisan migrate --force
-                    php artisan optimize
+                  cd /var/www/webmag
+                  git pull origin main
+                  # Install any new dependencies
+                  composer install --no-dev --prefer-dist
+                  php artisan migrate --force
+                  php artisan optimize
