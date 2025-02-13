@@ -28,7 +28,7 @@ class ViewServiceProvider extends ServiceProvider
     $views = [
         'blog.*', 
         'components.blog.layout',
-        'components.blog.adminlayout',
+        'components.admin.layout',
     ];
 
     View::composer($views, FeaturedPostsComposer::class);

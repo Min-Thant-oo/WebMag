@@ -8,6 +8,9 @@
 
     <title>{{ $title ?? 'WEBMAG | Technical Blogs' }}</title>
 
+     <!-- Favicon -->
+     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
     <meta name="title" content="{{ $title ?? 'WEBMAG | Technical Blogs' }}">
     <meta name="description" content="{{ $description ?? 'The best place to learn programming by reading blogs' }}">
 

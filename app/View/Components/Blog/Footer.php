@@ -3,8 +3,6 @@
 namespace App\View\Components\Blog;
 
 use App\Models\SiteConfig;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class Footer extends Component
