@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title">
-                    <h2>Recent Blogs</h2>
+                    <h2>Recent Posts</h2>
                 </div>
             </div>
             @foreach($blogs as $blog)
