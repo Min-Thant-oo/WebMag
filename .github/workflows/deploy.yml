@@ -39,7 +39,7 @@ jobs:
                 SOURCE: "."
                 REMOTE_HOST: ${{ secrets.VPS_HOST }}
                 REMOTE_USER: ${{ secrets.VPS_USER }}
-                TARGET: "/var/www/webmag"
+                TARGET: "/var/www/webmag.minthantoo.com"
 
             - name: Run Remote/Artisan Commands
               uses: appleboy/ssh-action@v0.1.6
@@ -48,7 +48,7 @@ jobs:
                 username: ${{ secrets.VPS_USER }}
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script: |
-                  cd /var/www/webmag
+                  cd /var/www/webmag.minthantoo.com
                   git pull origin main
                   # Install any new dependencies
                   composer install --no-dev --prefer-dist
